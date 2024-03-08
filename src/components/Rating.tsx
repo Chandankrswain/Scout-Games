@@ -7,13 +7,13 @@ interface Props {
 const Rating = ({ rating }: Props) => {
   return (
     <Badge
-      margin="1px"
+      marginTop="6px"
       height="20px"
       borderRadius="5px"
       fontSize="12px"
       colorScheme="green"
     >
-      {rating}
+      {rating.toFixed(1)}
     </Badge>
   );
 };
