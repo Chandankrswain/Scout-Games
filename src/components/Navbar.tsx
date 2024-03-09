@@ -7,7 +7,7 @@ import { HStack, Image } from "@chakra-ui/react";
 const Navbar = () => {
   return (
     <HStack>
-      <Image src={logo} boxSize="45px" margin="10px" borderRadius="20%" />
+      <Image src={logo} boxSize="45px" margin="30px" borderRadius="20%" />
       <SearchBar />
       <ColorSwitch />
     </HStack>

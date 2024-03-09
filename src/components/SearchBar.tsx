@@ -25,7 +25,7 @@ const SearchBar = () => {
   };
 
   return (
-    <InputGroup width="88%">
+    <InputGroup margin="20px" width="88%">
       <InputLeftElement
         pointerEvents="none"
         alignContent="center"
@@ -34,12 +34,16 @@ const SearchBar = () => {
         <Image
           onChange={handleToggle}
           src={imageSrc}
-          boxSize="19px"
+          boxSize="15px"
           marginLeft="10px"
-          marginTop="7px"
         />
       </InputLeftElement>
-      <Input type="text" placeholder="Search" size="lg" borderRadius="80px" />
+      <Input
+        type="text"
+        placeholder="Search 982,242 games"
+        size="md"
+        borderRadius="80px"
+      />
     </InputGroup>
   );
 };

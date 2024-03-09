@@ -8,13 +8,15 @@ const ColorSwitch = () => {
   };
 
   return (
-    <HStack>
+    <HStack width="150px">
       <Switch
         colorScheme="teal"
         isChecked={colorMode === "dark"}
         onChange={handleToggle}
       />
-      <Text marginRight="5px">Dark Mode </Text>
+      <Text fontSize="15px" marginRight="5px" fontWeight="600">
+        Dark Mode
+      </Text>
     </HStack>
   );
 };
