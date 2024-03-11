@@ -11,6 +11,7 @@ export interface FetchGenre {
   count: number;
   results: Genres[];
 }
+
 const useGenres = () => {
   const [genres, setGenre] = useState<Genres[]>([]);
   const [error, setError] = useState("");
