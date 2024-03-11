@@ -1,4 +1,5 @@
 import { Heading, VStack } from "@chakra-ui/react";
+import GenresList from "./GenresList";
 
 const AsideGrid = () => {
   return (
@@ -9,6 +10,7 @@ const AsideGrid = () => {
       <Heading marginLeft="45px" paddingTop="16px" fontSize="25px" as="h4">
         Reviews
       </Heading>
+      <GenresList />
     </VStack>
   );
 };
