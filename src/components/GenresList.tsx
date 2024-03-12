@@ -2,7 +2,7 @@ import { Heading } from "@chakra-ui/react";
 import useGenres from "../hooks/useGenres";
 
 const GenresList = () => {
-  const { genres } = useGenres();
+  const { data } = useGenres();
 
   return (
     <>
@@ -10,7 +10,7 @@ const GenresList = () => {
         Genres
       </Heading>
       <ul>
-        {genres.map((genre: any) => (
+        {data.map((genre: any) => (
           <li key={genre.id}>{genre.name}</li>
         ))}
       </ul>
