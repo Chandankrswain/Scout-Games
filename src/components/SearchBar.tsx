@@ -4,10 +4,10 @@ import searchBlack from "../images/searchBlack.png";
 import {
   InputGroup,
   InputLeftElement,
-  Image,
   Input,
   useColorMode,
 } from "@chakra-ui/react";
+import { BsSearch } from "react-icons/bs";
 
 const SearchBar = () => {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -25,22 +25,11 @@ const SearchBar = () => {
   };
 
   return (
-    <InputGroup margin="20px" width="88%">
-      <InputLeftElement
-        pointerEvents="none"
-        alignContent="center"
-        padding="0px"
-      >
-        <Image
-          onChange={handleToggle}
-          src={imageSrc}
-          boxSize="15px"
-          marginLeft="10px"
-        />
-      </InputLeftElement>
+    <InputGroup>
+      <InputLeftElement children={<BsSearch />}></InputLeftElement>
       <Input
         type="text"
-        placeholder="Search 982,242 games"
+        placeholder="Search games..."
         size="md"
         borderRadius="80px"
       />
