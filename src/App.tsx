@@ -7,6 +7,7 @@ import { Genres } from "./hooks/useGenres";
 import GenresList from "./components/GenresList";
 import PlatformsDropdown from "./components/PlatformsDropdown";
 import { Game, Platform } from "./hooks/useGames";
+import SortSelector from "./components/SortSelector";
 
 export interface GameQuery {
   genre: Genres | null;
@@ -46,6 +47,7 @@ function App() {
               setGameQuery({ ...gameQuery, platform })
             }
           />
+          <SortSelector />
           <GameGrid gameQuery={gameQuery} />
         </GridItem>
       </Grid>
