@@ -1,7 +1,4 @@
 import { Heading, VStack } from "@chakra-ui/react";
-import GenresList from "./GenresList";
-import { Genres } from "../hooks/useGenres";
-import { useState } from "react";
 
 const AsideGrid = () => {
   return (

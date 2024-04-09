@@ -1,12 +1,11 @@
 import Navbar from "./components/Navbar";
 import { Grid, GridItem, Show } from "@chakra-ui/react";
 import GameGrid from "./components/GameGrid";
-// import AsideGrid from "./components/AsideGrid";
 import { useState } from "react";
 import { Genres } from "./hooks/useGenres";
 import GenresList from "./components/GenresList";
 import PlatformsDropdown from "./components/PlatformsDropdown";
-import { Game, Platform } from "./hooks/useGames";
+import { Platform } from "./hooks/useGames";
 import SortSelector from "./components/SortSelector";
 import GameHeading from "./components/GameHeading";
 
@@ -48,7 +47,7 @@ function App() {
         </Show>
 
         <GridItem area="main">
-          <GameHeading gameQuery={gameQuery}/> 
+          <GameHeading gameQuery={gameQuery} />
           <PlatformsDropdown
             selectedPlatform={gameQuery.platform}
             onSelectPlatform={(platform) =>
