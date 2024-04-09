@@ -33,7 +33,7 @@ function App() {
           <Navbar />
         </GridItem>
         <Show above="lg">
-          <GridItem marginLeft="45px" paddingTop="10px">
+          <GridItem marginLeft="20px" paddingTop="10px">
             <GenresList
               selectedGenre={gameQuery.genre}
               onSelectGenre={(genre) => setGameQuery({ ...gameQuery, genre })}
