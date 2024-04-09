@@ -8,6 +8,7 @@ import GenresList from "./components/GenresList";
 import PlatformsDropdown from "./components/PlatformsDropdown";
 import { Game, Platform } from "./hooks/useGames";
 import SortSelector from "./components/SortSelector";
+import GameHeading from "./components/GameHeading";
 
 export interface GameQuery {
   genre: Genres | null;
@@ -47,6 +48,7 @@ function App() {
         </Show>
 
         <GridItem area="main">
+          <GameHeading gameQuery={gameQuery}/> 
           <PlatformsDropdown
             selectedPlatform={gameQuery.platform}
             onSelectPlatform={(platform) =>
