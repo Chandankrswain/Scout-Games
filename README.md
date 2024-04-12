@@ -1,30 +1,15 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Scout Games is your ultimate destination for discovering and exploring a vast world of video games. Whether you're a hardcore gamer or just looking to find your next favorite game, ScoutGames has got you covered. With a sleek and user-friendly interface, ScoutGames makes it easy to search, discover, and learn about the latest and greatest games across all platforms.
 
-Currently, two official plugins are available:
+Features:
+🎮 Extensive Game Library: Browse through an extensive collection of games from various genres, platforms, and developers.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🔍 Advanced Search: Use advanced search filters to find games based on your preferences, including genre, platform, release date, and more.
 
-## Expanding the ESLint configuration
+🔥 Trending and Popular Games: Stay updated with trending and popular games to always be in the know about what's hot in the gaming world.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Tech Stack:
+Frontend: React, Chakra UI
+APIs: RAWG API
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+![image](https://github.com/Chandankrswain/Scout-Games/assets/44640134/6d180962-328f-4e8f-b01e-d1117aaf90dd)
