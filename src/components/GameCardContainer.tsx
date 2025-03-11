@@ -4,7 +4,7 @@ import { ReactNode } from "react";
 interface Props {
   children: ReactNode;
 }
-
+//setup done
 const GameCardContainer = ({ children }: Props) => {
   return (
     <Box w="100%" borderRadius="10px" overflow="hidden" h="auto">
