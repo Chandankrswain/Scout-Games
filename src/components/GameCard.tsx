@@ -10,14 +10,21 @@ import {
 import PlatformIcons from "./PlatformIcons";
 import Rating from "./Rating";
 import getCroppedImageUrl from "../services/image-rl";
+import { useNavigate } from "react-router-dom";
 
 interface Props {
   game: Game;
 }
 
 const GameCard = ({ game }: Props) => {
+  const navigate = useNavigate();
+
   return (
-    <Card>
+    <Card
+      onClick={() => {
+        navigate("/gameinfo");
+      }}
+    >
       <Image src={getCroppedImageUrl(game?.background_image)} />
       <CardBody>
         <HStack alignItems="top">
