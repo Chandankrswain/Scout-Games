@@ -1,4 +1,4 @@
-import { GameQuery } from "../App";
+import { GameQuery } from "../pages/Home";
 import useData from "./useData";
 
 export interface Platform {
