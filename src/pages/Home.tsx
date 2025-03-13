@@ -19,6 +19,8 @@ export interface GameQuery {
 
 const Home = () => {
   const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery);
+  const [currentPage, setCurrentPage] = useState(1);
+  const totalPages = 10;
   return (
     <div>
       <>
@@ -66,7 +68,10 @@ const Home = () => {
           </GridItem>
         </Grid>
       </>
-      <PaginationRounded totalPages={0} onPageChange={() => {}} />
+      <PaginationRounded
+        totalPages={totalPages}
+        onPageChange={setCurrentPage}
+      />
     </div>
   );
 };

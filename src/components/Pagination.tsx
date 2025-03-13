@@ -19,29 +19,27 @@ const PaginationRounded = ({ totalPages, onPageChange }: PaginationProps) => {
   const renderPageNumbers = () => {
     let pages = [];
 
-    // Always show first 3 pages
-    for (let i = 1; i <= 3 && i <= totalPages; i++) {
+    // Always show 1, 2, 3 (if available)
+    for (let i = 1; i <= Math.min(3, totalPages); i++) {
       pages.push(i);
     }
 
     if (totalPages > 4) {
       pages.push("...");
-      pages.push(totalPages); // Show last page
+      pages.push(totalPages); // Always show last page
     }
 
     return pages;
   };
 
   return (
-    <HStack spacing={2} justify="center" mt={6}>
+    <HStack spacing={2} justify="center" mt={6} mb={6}>
       <IconButton
         aria-label="Previous page"
         icon={<ChevronLeftIcon />}
         onClick={() => handleChange(page - 1)}
         isDisabled={page === 1}
-      >
-        Previous Page
-      </IconButton>
+      />
 
       {renderPageNumbers().map((pageNumber, idx) =>
         pageNumber === "..." ? (
@@ -51,9 +49,11 @@ const PaginationRounded = ({ totalPages, onPageChange }: PaginationProps) => {
         ) : (
           <Button
             key={idx}
-            borderRadius="full"
-            colorScheme={page === pageNumber ? "purple" : "gray"}
-            variant={page === pageNumber ? "solid" : "outline"}
+            borderRadius="md"
+            bg={page === pageNumber ? "white" : "gray.700"} // White active, dark gray inactive
+            color={page === pageNumber ? "black" : "white"} // Black text on white, White text on gray
+            variant="solid"
+            _hover={{ bg: page === pageNumber ? "gray.200" : "gray.600" }} // Lighter hover effect
             onClick={() => handleChange(Number(pageNumber))}
           >
             {pageNumber}
