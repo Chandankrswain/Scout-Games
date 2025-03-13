@@ -8,6 +8,7 @@ import SortSelector from "../components/SortSelector";
 import GameGrid from "../components/GameGrid";
 import { Genres } from "../hooks/useGenres";
 import { Platform } from "../hooks/useGames";
+import PaginationRounded from "../components/Pagination";
 
 export interface GameQuery {
   genre: Genres | null;
@@ -65,6 +66,7 @@ const Home = () => {
           </GridItem>
         </Grid>
       </>
+      <PaginationRounded totalPages={0} onPageChange={() => {}} />
     </div>
   );
 };
