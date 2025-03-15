@@ -31,7 +31,7 @@ const PaginationRounded = ({ totalPages, onPageChange }: PaginationProps) => {
 
     return pages;
   };
-  // Render the pagination component
+
   return (
     <HStack spacing={2} justify="center" mt={6} mb={6}>
       <IconButton
