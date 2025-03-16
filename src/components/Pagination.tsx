@@ -2,16 +2,17 @@ import { Button, HStack, IconButton, Text } from "@chakra-ui/react";
 import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
 
 interface PaginationProps {
-  totalPages: number;
+  totalCount: number;
   currentPage: number;
   onPageChange: (page: number) => void;
 }
 
 const PaginationRounded = ({
-  totalPages,
+  totalCount,
   currentPage,
   onPageChange,
 }: PaginationProps) => {
+  const totalPages = Math.ceil(totalCount / 20);
   if (totalPages < 1) return null; // No pagination if there are no pages
 
   const handleChange = (newPage: number) => {
