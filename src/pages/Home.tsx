@@ -15,11 +15,11 @@ export interface GameQuery {
   platform: Platform | null;
   sortOrder: string;
   searchText: string;
+  page: number;
 }
 
 const Home = () => {
   const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery);
-  const [currentPage, setCurrentPage] = useState(1);
   const totalPages = 10;
   return (
     <div>
@@ -70,7 +70,8 @@ const Home = () => {
       </>
       <PaginationRounded
         totalPages={totalPages}
-        onPageChange={setCurrentPage}
+        currentPage={gameQuery.page}
+        onPageChange={(page) => setGameQuery({ ...gameQuery, page })}
       />
     </div>
   );

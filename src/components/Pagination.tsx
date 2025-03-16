@@ -1,32 +1,42 @@
-import { useState } from "react";
 import { Button, HStack, IconButton, Text } from "@chakra-ui/react";
 import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
 
 interface PaginationProps {
   totalPages: number;
+  currentPage: number;
   onPageChange: (page: number) => void;
 }
 
-const PaginationRounded = ({ totalPages, onPageChange }: PaginationProps) => {
-  const [page, setPage] = useState(1);
+const PaginationRounded = ({
+  totalPages,
+  currentPage,
+  onPageChange,
+}: PaginationProps) => {
+  if (totalPages < 1) return null; // No pagination if there are no pages
 
   const handleChange = (newPage: number) => {
     if (newPage < 1 || newPage > totalPages) return;
-    setPage(newPage);
     onPageChange(newPage);
+    window.scrollTo({ top: 0 }); // Scroll to top on page change
   };
 
   const renderPageNumbers = () => {
-    let pages = [];
+    const pages: (number | string)[] = [];
 
-    // Always show 1, 2, 3 (if available)
-    for (let i = 1; i <= Math.min(3, totalPages); i++) {
-      pages.push(i);
+    if (totalPages === 1) {
+      return [1]; // Case: Only 1 page
     }
 
-    if (totalPages > 4) {
-      pages.push("...");
-      pages.push(totalPages); // Always show last page
+    if (currentPage <= 3) {
+      for (let i = 1; i <= Math.min(5, totalPages); i++) pages.push(i);
+      if (totalPages > 5) pages.push("...", totalPages);
+    } else if (currentPage > 3 && currentPage < totalPages - 3) {
+      pages.push(1, "...");
+      pages.push(currentPage - 1, currentPage, currentPage + 1);
+      pages.push("...", totalPages);
+    } else {
+      pages.push(1, "...");
+      for (let i = totalPages - 5; i <= totalPages; i++) pages.push(i);
     }
 
     return pages;
@@ -34,15 +44,17 @@ const PaginationRounded = ({ totalPages, onPageChange }: PaginationProps) => {
 
   return (
     <HStack spacing={2} justify="center" mt={6} mb={6}>
+      {/* Previous Button */}
       <IconButton
         aria-label="Previous page"
         icon={<ChevronLeftIcon />}
-        onClick={() => handleChange(page - 1)}
-        isDisabled={page === 1}
+        onClick={() => handleChange(currentPage - 1)}
+        isDisabled={currentPage === 1}
       />
 
-      {renderPageNumbers().map((pageNumber, idx) =>
-        pageNumber === "..." ? (
+      {/* Page Numbers */}
+      {renderPageNumbers().map((page, idx) =>
+        page === "..." ? (
           <Text key={idx} px={3} fontWeight="bold">
             ...
           </Text>
@@ -50,22 +62,22 @@ const PaginationRounded = ({ totalPages, onPageChange }: PaginationProps) => {
           <Button
             key={idx}
             borderRadius="md"
-            bg={page === pageNumber ? "white" : "gray.700"} // White active, dark gray inactive
-            color={page === pageNumber ? "black" : "white"} // Black text on white, White text on gray
-            variant="solid"
-            _hover={{ bg: page === pageNumber ? "gray.200" : "gray.600" }} // Lighter hover effect
-            onClick={() => handleChange(Number(pageNumber))}
+            bg={currentPage === page ? "white" : "gray.700"}
+            color={currentPage === page ? "black" : "white"}
+            _hover={{ bg: currentPage === page ? "gray.200" : "gray.600" }}
+            onClick={() => handleChange(Number(page))}
           >
-            {pageNumber}
+            {page}
           </Button>
         )
       )}
 
+      {/* Next Button */}
       <IconButton
         aria-label="Next page"
         icon={<ChevronRightIcon />}
-        onClick={() => handleChange(page + 1)}
-        isDisabled={page === totalPages}
+        onClick={() => handleChange(currentPage + 1)}
+        isDisabled={currentPage === totalPages}
       />
     </HStack>
   );
