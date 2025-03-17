@@ -28,6 +28,7 @@ const useData = <T>(
         })
         .then((res) => {
           setData(res.data.results);
+          console.log(res.data.results);
           setLoading(false);
         })
         .catch((err) => {
