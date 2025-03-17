@@ -22,7 +22,7 @@ const GameCard = ({ game }: Props) => {
   return (
     <Card
       onClick={() => {
-        navigate("/gameinfo");
+        navigate("/games/:SLUG");
       }}
     >
       <Image src={getCroppedImageUrl(game?.background_image)} />

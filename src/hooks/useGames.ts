@@ -25,6 +25,7 @@ const useGame = (gameQuery: GameQuery) =>
         ordering: gameQuery.sortOrder,
         search: gameQuery.searchText,
         page: gameQuery.page,
+        name: gameQuery.slug,
       },
     },
     [gameQuery]

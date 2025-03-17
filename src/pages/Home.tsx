@@ -17,6 +17,7 @@ export interface GameQuery {
   sortOrder: string;
   searchText: string;
   page: number;
+  slug: string;
 }
 
 const Home = () => {

@@ -13,7 +13,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<App />} />
-          <Route path="/gameinfo" element={<GameInfo />} />
+          <Route path="/games/:SLUG" element={<GameInfo />} />
         </Routes>
       </BrowserRouter>
     </ChakraProvider>
